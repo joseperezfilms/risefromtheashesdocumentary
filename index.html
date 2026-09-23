@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rise From The Ashes — A Community Documentary</title>
+<meta name="description" content="A community documentary honoring Old Town Newhall and the businesses and neighbors rebuilding after the fire.">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg-alt:#121212;
+    --card:#161616;
+    --border:#2a2a2a;
+    --text:#f2f2f2;
+    --muted:#a8a8a8;
+    --accent:#c8102e;
+    --accent-light:#e8354f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:Georgia,"Times New Roman",serif;}
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,10,10,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{font-weight:700;letter-spacing:0.5px;font-size:15px;text-decoration:none;}
+  .brand span{color:var(--accent);}
+  .navlinks{display:flex;gap:24px;font-size:14px;}
+  .navlinks a{text-decoration:none;color:var(--muted);transition:color .2s;}
+  .navlinks a:hover{color:var(--text);}
+  .nav-cta{
+    background:var(--accent);color:#fff;padding:8px 16px;border-radius:6px;
+    font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;
+  }
+
+  /* HERO */
+  .hero{
+    padding:100px 24px 80px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(200,16,46,0.12), transparent 60%),
+      var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--accent-light);
+    font-weight:600;margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(40px,8vw,84px);
+    letter-spacing:1px;
+    line-height:1.05;
+    margin-bottom:18px;
+  }
+  .hero p.sub{
+    color:var(--muted);font-size:18px;max-width:560px;margin:0 auto 36px;
+  }
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 28px;border-radius:8px;
+    font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s, opacity .15s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-light);}
+  .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border);}
+  .btn-secondary:hover{border-color:var(--muted);}
+
+  /* VIDEO */
+  .video-wrap{
+    max-width:800px;margin:56px auto 0;
+    border-radius:12px;overflow:hidden;border:1px solid var(--border);
+    aspect-ratio:16/9;background:#000;
+  }
+  .video-wrap iframe{width:100%;height:100%;display:block;border:0;}
+
+  /* SECTION */
+  section{padding:80px 24px;border-bottom:1px solid var(--border);}
+  .section-label{
+    text-transform:uppercase;letter-spacing:2px;font-size:12px;color:var(--accent-light);
+    font-weight:700;margin-bottom:14px;
+  }
+  h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,4vw,40px);margin-bottom:24px;}
+  .lede{color:var(--muted);font-size:17px;max-width:680px;}
+
+  /* STORY */
+  .story p{color:#d8d8d8;font-size:17px;max-width:680px;margin-bottom:18px;}
+
+  /* TEAM */
+  .team-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:36px;
+  }
+  .team-card{
+    background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;
+  }
+  .team-card .role{
+    text-transform:uppercase;font-size:11px;letter-spacing:1.5px;color:var(--accent-light);
+    font-weight:700;margin-bottom:8px;
+  }
+  .team-card .name{font-size:20px;font-weight:700;margin-bottom:6px;}
+  .team-card .handle{color:var(--muted);font-size:14px;text-decoration:none;}
+  .team-card .handle:hover{color:var(--text);}
+
+  /* UPDATES / TIMELINE */
+  .timeline{margin-top:36px;border-left:2px solid var(--border);padding-left:28px;}
+  .tl-item{position:relative;padding-bottom:36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-34px;top:4px;width:11px;height:11px;border-radius:50%;
+    background:var(--accent);border:2px solid var(--bg);
+  }
+  .tl-date{font-size:13px;color:var(--accent-light);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+  .tl-title{font-size:18px;font-weight:700;margin-bottom:4px;}
+  .tl-text{color:var(--muted);font-size:15px;max-width:560px;}
+
+  /* SUPPORT */
+  .support{
+    background:var(--bg-alt);
+    text-align:center;
+  }
+  .support h2{max-width:640px;margin-left:auto;margin-right:auto;}
+  .support .lede{margin-left:auto;margin-right:auto;margin-bottom:32px;}
+  .amounts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+  .amounts span{
+    border:1px solid var(--border);padding:8px 18px;border-radius:999px;font-size:14px;color:var(--muted);
+  }
+
+  /* FOLLOW / FOOTER */
+  footer{padding:56px 24px 40px;text-align:center;}
+  .social-links{display:flex;gap:20px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+  .social-links a{
+    text-decoration:none;color:var(--text);border:1px solid var(--border);
+    padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;transition:border-color .2s;
+  }
+  .social-links a:hover{border-color:var(--accent);}
+  footer .fine{color:var(--muted);font-size:13px;}
+  footer .fine a{color:var(--muted);text-decoration:underline;}
+
+  @media (max-width:640px){
+    .navlinks{display:none;}
+    section{padding:60px 20px;}
+    .hero{padding:80px 20px 60px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">PEREZ<span>&amp;CO</span> FILMS</a>
+    <div class="navlinks">
+      <a href="#story">The Story</a>
+      <a href="#team">The Team</a>
+      <a href="#updates">Updates</a>
+    </div>
+    <a href="#support" class="nav-cta">Support the Film</a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="eyebrow">A Community Documentary · Old Town Newhall</div>
+  <h1>RISE FROM<br>THE ASHES</h1>
+  <p class="sub">Honoring the businesses and neighbors of Old Town Newhall as they rebuild after the fire — told by the people who lived it.</p>
+  <div class="hero-ctas">
+    <a href="#support" class="btn btn-primary">Support the Film</a>
+    <a href="#story" class="btn btn-secondary">Read the Story</a>
+  </div>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/0SlRijEHTu4" title="Rise From The Ashes — Sizzle Reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="section-label">The Story</div>
+    <h2>A town finding its way back.</h2>
+    <div class="story">
+      <p>On August 24, 2026, a fire tore through Old Town Newhall, taking with it businesses, art, and gathering places that this community had built over generations.</p>
+      <p><em>Rise From The Ashes</em> follows the owners, artists, and neighbors at the center of that loss — not to dwell on how the fire started, but to capture how a town shows up for itself afterward.</p>
+      <p>This documentary does not take a position on the cause of the fire. Its purpose is to uplift the people rebuilding Old Town Newhall, not to speculate or assign blame.</p>
+      <p>Filming is happening through the fall of 2026, with a target completion of mid-November.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-label">The Team</div>
+    <h2>Donating their time and skill.</h2>
+    <p class="lede">Everyone below is volunteering their craft to help tell this story.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="role">Director / Producer</div>
+        <div class="name">Jose Perez</div>
+        <a class="handle" href="https://instagram.com/joseperezfilms" target="_blank" rel="noopener">@joseperezfilms</a>
+      </div>
+      <div class="team-card">
+        <div class="role">Camera Operator</div>
+        <div class="name">Ricardo Zarate</div>
+        <a class="handle" href="https://instagram.com/lighthousestudioproductions" target="_blank" rel="noopener">@lighthousestudioproductions</a>
+      </div>
+      <div class="team-card">
+        <div class="role">BTS Photos &amp; Video</div>
+        <div class="name">Leire Baztarrica</div>
+        <a class="handle" href="https://instagram.com/zhotsbyleire" target="_blank" rel="noopener">@zhotsbyleire</a>
+      </div>
+      <div class="team-card">
+        <div class="role">Sound Recordist</div>
+        <div class="name">Newman Gan</div>
+        <a class="handle" href="https://instagram.com/new.man.gan" target="_blank" rel="noopener">@new.man.gan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="wrap">
+    <div class="section-label">Updates</div>
+    <h2>Following along.</h2>
+    <p class="lede">A running log of milestones as production moves forward.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Oct 2, 2026</div>
+        <div class="tl-title">Principal filming day at Locale Studios</div>
+        <div class="tl-text">Interviews with Jane Mick, Kara Miller, Tobi Beck, and more, filmed on Main Street in Newhall.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Sept 2026</div>
+        <div class="tl-title">Love on Main St</div>
+        <div class="tl-text">A community fundraiser and gathering on Main Street — proof this town shows up for itself.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Aug 2026</div>
+        <div class="tl-title">Production announced</div>
+        <div class="tl-text">Crew came together, the sizzle reel released, and outreach to affected business owners began.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="support" class="support">
+  <div class="wrap">
+    <div class="section-label">Support the Film</div>
+    <h2>Every contribution helps get this story told.</h2>
+    <p class="lede">This is a passion project — every dollar goes straight into production: crew, gear, and post-production. Give any amount that feels right.</p>
+    <div class="amounts"><span>$10</span><span>$25</span><span>$50</span><span>Any amount</span></div>
+    <a href="https://buy.stripe.com/4gM6oH8S21G4dtVauh3sI0r" class="btn btn-primary" id="donate-link" target="_blank" rel="noopener">Give Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="section-label" style="margin-bottom:16px;">Follow Along</div>
+  <div class="social-links">
+    <a href="https://instagram.com/joseperezfilms" target="_blank" rel="noopener">@joseperezfilms</a>
+    <a href="https://instagram.com/perezandcofilms" target="_blank" rel="noopener">@perezandcofilms</a>
+    <a href="https://youtu.be/0SlRijEHTu4" target="_blank" rel="noopener">Watch the Sizzle</a>
+  </div>
+  <p class="fine">#NewhallStrong &nbsp;·&nbsp; #RiseFromTheAshes &nbsp;·&nbsp; #ShotbyaHuman<br>
+  A production by Perez &amp; Co. Films</p>
+</footer>
+
+</body>
+</html>
