@@ -190,6 +190,31 @@
   .amounts span{
     border:1px solid var(--border);padding:8px 16px;border-radius:999px;font-size:13px;color:var(--muted);
   }
+  .support-faq{
+    max-width:640px;margin:0 auto 32px;display:grid;gap:14px;text-align:left;
+  }
+  .support-faq > div{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;
+  }
+  .support-faq .q{font-weight:700;font-size:14px;margin-bottom:4px;}
+  .support-faq .a{color:var(--muted);font-size:14px;}
+
+  /* SIGNUP */
+  .signup{background:var(--card);}
+  .signup-form{
+    display:flex;gap:12px;flex-wrap:wrap;max-width:480px;margin-top:20px;
+  }
+  .signup-form input[type="email"]{
+    flex:1;min-width:220px;background:var(--bg);border:1px solid var(--border);
+    color:var(--text);padding:12px 16px;border-radius:8px;font-size:15px;
+  }
+  .signup-form input[type="email"]::placeholder{color:var(--muted);}
+  .signup-form button{
+    background:var(--accent);color:#fff;border:none;padding:12px 24px;
+    border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s;
+  }
+  .signup-form button:hover{background:var(--accent-light);}
+  .signup-msg{margin-top:12px;font-size:14px;color:var(--muted);}
 
   /* FOLLOW / FOOTER */
   footer{padding:56px 24px 40px;text-align:center;}
@@ -208,6 +233,21 @@
     .hero{padding:80px 20px 60px;}
   }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'REPLACE_WITH_YOUR_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -220,7 +260,7 @@
       <a href="#team">The Team</a>
       <a href="#updates">Updates</a>
     </div>
-    <a href="https://buy.stripe.com/4gM6oH8S21G4dtVauh3sI0r" class="nav-cta" target="_blank" rel="noopener">Give Now</a>
+    <a href="https://buy.stripe.com/4gM6oH8S21G4dtVauh3sI0r" class="nav-cta" id="nav-donate-link" rel="noopener">Give Now</a>
   </div>
 </nav>
 
@@ -246,7 +286,7 @@
       <p><em>Rise From The Ashes</em> follows the owners, artists, and neighbors at the center of that loss — not to dwell on how the fire started, but to capture how a town shows up for itself afterward.</p>
       <p>This documentary does not take a position on the cause of the fire. Its purpose is to uplift the people rebuilding Old Town Newhall, not to speculate or assign blame.</p>
       <p>We are an independent production team donating our time and skill to tell this story right, and your support is what keeps this project moving forward.</p>
-      <p>Filming is happening through the fall of 2026, with a target completion of mid-November.</p>
+      <p>Filming is happening through the fall of 2026, moving into post-production once interviews wrap. Rather than releasing straight to YouTube, we are planning a community screening in mid-November, open to all of Old Town Newhall, with multiple showings at a theater or venue still to be determined.</p>
     </div>
   </div>
 </section>
@@ -254,11 +294,25 @@
 <section id="support" class="support">
   <div class="wrap">
     <div class="section-label">Support the Film</div>
-    <h2>Every contribution helps get this story told.</h2>
-    <p class="lede">This is a passion project — every dollar goes straight into production: crew, gear, and post-production. Give any amount that feels right.</p>
+    <h2>Help this story reach the people who lived it.</h2>
+    <p class="lede">This is a passion project, and every dollar goes straight into finishing it right: filming, editing, and getting it in front of the Old Town Newhall community it is about. Give any amount that feels right.</p>
     <p class="lede" style="margin-top:-14px;">We are filming principal interviews on October 2nd at Locale Studios on Main Street, with Old Town Newhall community members and business owners taking part.</p>
+    <div class="support-faq">
+      <div>
+        <div class="q">Where does my donation go?</div>
+        <div class="a">Straight into finishing the film: filming, editing, sound, and color. No salaries are taken, the whole crew is volunteering their time.</div>
+      </div>
+      <div>
+        <div class="q">Will this be on YouTube?</div>
+        <div class="a">No. The premiere is a community screening in mid-November, open to all of Old Town Newhall, with multiple showings planned.</div>
+      </div>
+      <div>
+        <div class="q">When will it be finished?</div>
+        <div class="a">We are filming through early October, then move straight into post-production toward a mid-November screening.</div>
+      </div>
+    </div>
     <div class="amounts"><span>$10</span><span>$25</span><span>$50</span><span>Any amount</span></div>
-    <a href="https://buy.stripe.com/4gM6oH8S21G4dtVauh3sI0r" class="btn btn-primary" id="donate-link" target="_blank" rel="noopener">Give Now</a>
+    <a href="https://buy.stripe.com/4gM6oH8S21G4dtVauh3sI0r" class="btn btn-primary" id="donate-link" rel="noopener">Give Now</a>
     <p class="lede" style="margin-top:20px;font-size:14px;">Already backed by supporters in the Santa Clarita community. Be one of the first to help push this over the line.</p>
   </div>
 </section>
@@ -312,6 +366,16 @@
     <p class="lede">A running log of milestones as production moves forward.</p>
     <div class="timeline">
       <div class="tl-item">
+        <div class="tl-date">Mid-Nov 2026</div>
+        <div class="tl-title">Community screening</div>
+        <div class="tl-text">The documentary premieres with a community screening open to all of Old Town Newhall, with multiple showings planned. Theater and venue are still to be determined, based on contributions raised.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Oct-Nov 2026</div>
+        <div class="tl-title">Post-production</div>
+        <div class="tl-text">Once principal interviews wrap, the team moves into editing, sound, and color, working toward the mid-November screening.</div>
+      </div>
+      <div class="tl-item">
         <div class="tl-date">Oct 2, 2026</div>
         <div class="tl-title">Principal filming day at Locale Studios</div>
         <div class="tl-text">Interviews with community members and business owners, filmed on Main Street in Newhall.</div>
@@ -330,6 +394,19 @@
   </div>
 </section>
 
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="section-label">Stay Updated</div>
+    <h2>Be the first to know when and where.</h2>
+    <p class="lede">Get an email the moment the community screening date and venue are locked in, plus occasional updates as the film comes together.</p>
+    <form class="signup-form" id="signup-form">
+      <input type="email" name="email" placeholder="Your email address" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="signup-msg" id="signup-msg"></p>
+  </div>
+</section>
+
 <footer>
   <div class="section-label" style="margin-bottom:16px;">Follow Along</div>
   <div class="social-links">
@@ -340,6 +417,57 @@
   <p class="fine">#NewhallStrong &nbsp;·&nbsp; #RiseFromTheAshes &nbsp;·&nbsp; #ShotbyaHuman<br>
   A production by Perez &amp; Co. Films</p>
 </footer>
+
+<script>
+  document.querySelectorAll('#donate-link, #nav-donate-link').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
+      }
+    });
+  });
+</script>
+
+<!-- HubSpot email signup -->
+<script>
+  var HUBSPOT_PORTAL_ID = '247474631';
+  var HUBSPOT_FORM_GUID = '99cd9f57-1067-4e98-bdc0-f76ebcbd074f';
+
+  document.getElementById('signup-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = e.target;
+    var msg = document.getElementById('signup-msg');
+    var email = form.email.value;
+
+    if (HUBSPOT_FORM_GUID.indexOf('REPLACE_WITH') === 0) {
+      msg.textContent = 'Signup form is not fully connected yet, check back soon.';
+      return;
+    }
+
+    msg.textContent = 'Submitting...';
+
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + HUBSPOT_PORTAL_ID + '/' + HUBSPOT_FORM_GUID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: [{ name: 'email', value: email }],
+        context: { pageUri: window.location.href, pageName: document.title }
+      })
+    })
+    .then(function(res){
+      if (res.ok) {
+        msg.textContent = 'You are on the list, we will email you when the screening date and venue are set.';
+        form.reset();
+        if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+      } else {
+        msg.textContent = 'Something went wrong, please try again in a moment.';
+      }
+    })
+    .catch(function(){
+      msg.textContent = 'Something went wrong, please try again in a moment.';
+    });
+  });
+</script>
 
 </body>
 </html>
