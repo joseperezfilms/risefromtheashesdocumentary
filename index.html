@@ -206,6 +206,18 @@
   .support-faq .q{font-weight:700;font-size:14px;margin-bottom:4px;}
   .support-faq .a{color:var(--muted);font-size:14px;}
 
+  /* SCREENING */
+  .screening{background:var(--bg-alt);text-align:center;}
+  .screening h2{max-width:640px;margin-left:auto;margin-right:auto;}
+  .screening .lede{margin-left:auto;margin-right:auto;margin-bottom:32px;}
+  .show-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:640px;margin:0 auto 28px;}
+  .show-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 18px;}
+  .show-card .time{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin-bottom:6px;}
+  .show-card .meta{color:var(--muted);font-size:14px;}
+  .screening-where{color:var(--muted);font-size:15px;margin-bottom:28px;}
+  .screening-where strong{color:var(--text);}
+  .hero-date{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:13px;color:var(--text);margin:0 auto 28px;letter-spacing:.5px;}
+
   /* SIGNUP */
   .signup{background:var(--card);}
   .signup-form{
@@ -263,6 +275,7 @@ fbq('track', 'PageView');
     <a href="#top" class="brand">PEREZ<span>&amp;CO</span> FILMS</a>
     <div class="navlinks">
       <a href="#story">The Story</a>
+      <a href="#screening">Screening</a>
       <a href="#support">Support</a>
       <a href="#bts">Behind The Scenes</a>
       <a href="#team">The Team</a>
@@ -276,8 +289,10 @@ fbq('track', 'PageView');
   <div class="eyebrow">A Community Documentary · Old Town Newhall</div>
   <h1>RISE FROM<br>THE ASHES</h1>
   <p class="sub">Honoring the businesses and neighbors of Old Town Newhall as they rebuild after the fire — told by the people who lived it.</p>
+  <div class="hero-date">Free community screening &middot; Thursday, Nov 12 &middot; Laemmle Newhall</div>
   <div class="hero-ctas">
-    <a href="#support" class="btn btn-primary">Support the Film</a>
+    <a href="#screening" class="btn btn-primary">Reserve a Seat</a>
+    <a href="#support" class="btn btn-secondary">Support the Film</a>
     <a href="#story" class="btn btn-secondary">Read the Story</a>
   </div>
   <div class="video-wrap">
@@ -294,7 +309,25 @@ fbq('track', 'PageView');
       <p><em>Rise From The Ashes</em> follows the owners, artists, and neighbors at the center of that loss — not to dwell on how the fire started, but to capture how a town shows up for itself afterward.</p>
       <p>This documentary does not take a position on the cause of the fire. Its purpose is to uplift the people rebuilding Old Town Newhall, not to speculate or assign blame.</p>
       <p>We are an independent production team donating our time and skill to tell this story right, and your support is what keeps this project moving forward.</p>
-      <p>Filming is happening through the fall of 2026, moving into post-production once interviews wrap. Rather than releasing straight to YouTube, we are planning a community screening in mid-November, open to all of Old Town Newhall, with multiple showings at a theater or venue still to be determined.</p>
+      <p>Filming is happening through the fall of 2026, moving into post-production once interviews wrap. Rather than releasing straight to YouTube, we are holding free community screenings on Thursday, November 12 at Laemmle Newhall, open to all of Old Town Newhall, with a Q&amp;A after each showing.</p>
+    </div>
+  </div>
+</section>
+
+<section id="screening" class="screening">
+  <div class="wrap">
+    <div class="section-label">Community Screening</div>
+    <h2>Be in the room with the people who lived it.</h2>
+    <p class="lede">Two free showings of <em>Rise From The Ashes</em> for the Old Town Newhall community, each followed by a Q&amp;A with director Jose Perez.</p>
+    <div class="show-grid">
+      <div class="show-card"><div class="time">4:00 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 3:30 PM</div></div>
+      <div class="show-card"><div class="time">5:30 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 5:00 PM</div></div>
+    </div>
+    <p class="screening-where"><strong>Laemmle Newhall</strong><br>22500 Lyons Ave, Newhall, CA</p>
+    <p class="lede" style="margin-bottom:24px;">Admission is free. Seating is limited, so RSVP is required. Send Jose a message and he will reply with your RSVP link for the showing you would like.</p>
+    <div class="hero-ctas">
+      <a href="https://instagram.com/joseperezfilms" class="btn btn-primary" rel="noopener">Message on Instagram</a>
+      <a href="mailto:joseperezfilms@gmail.com?subject=RSVP%20-%20Rise%20From%20The%20Ashes" class="btn btn-secondary">Email to RSVP</a>
     </div>
   </div>
 </section>
@@ -315,11 +348,11 @@ fbq('track', 'PageView');
       </div>
       <div>
         <div class="q">Will this be on YouTube?</div>
-        <div class="a">No. The premiere is a community screening in mid-November, open to all of Old Town Newhall, with multiple showings planned.</div>
+        <div class="a">No. The first public showings are free community screenings on Thursday, November 12 at Laemmle Newhall, open to all of Old Town Newhall.</div>
       </div>
       <div>
         <div class="q">When will it be finished?</div>
-        <div class="a">We are filming through October, then move straight into post-production toward a mid-November screening.</div>
+        <div class="a">We are filming through October, then move straight into post-production toward the November 12 screening.</div>
       </div>
     </div>
     <div class="amounts"><span>$10</span><span>$25</span><span>$50</span><span>Any amount</span></div>
@@ -388,14 +421,19 @@ fbq('track', 'PageView');
     <p class="lede">A running log of milestones as production moves forward.</p>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-date">Mid-Nov 2026</div>
-        <div class="tl-title">Community screening</div>
-        <div class="tl-text">The documentary premieres with a community screening open to all of Old Town Newhall, with multiple showings planned. Theater and venue are still to be determined, based on contributions raised.</div>
+        <div class="tl-date">Nov 12, 2026</div>
+        <div class="tl-title">Community screening at Laemmle Newhall</div>
+        <div class="tl-text">Two free showings, 4:00 PM and 5:30 PM, each followed by a Q&amp;A. Open to all of Old Town Newhall. RSVP required.</div>
       </div>
       <div class="tl-item">
         <div class="tl-date">Oct-Nov 2026</div>
         <div class="tl-title">Post-production</div>
-        <div class="tl-text">Once principal interviews wrap, the team moves into editing, sound, and color, working toward the mid-November screening.</div>
+        <div class="tl-text">Once principal interviews wrap, the team moves into editing, sound, and color, working toward the November 12 screening.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Oct 9, 2026</div>
+        <div class="tl-title">Second filming day at Locale Studios</div>
+        <div class="tl-text">Five more interviews filmed with Old Town Newhall business owners and community leaders at Locale Studios on Main Street.</div>
       </div>
       <div class="tl-item">
         <div class="tl-date">Oct 2, 2026</div>
@@ -419,8 +457,8 @@ fbq('track', 'PageView');
 <section id="signup" class="signup">
   <div class="wrap">
     <div class="section-label">Stay Updated</div>
-    <h2>Be the first to know when and where.</h2>
-    <p class="lede">Get an email the moment the community screening date and venue are locked in, plus occasional updates as the film comes together.</p>
+    <h2>Stay in the loop.</h2>
+    <p class="lede">Get a reminder before the November 12 screening, plus occasional updates as the film comes together.</p>
     <form class="signup-form" id="signup-form">
       <input type="email" name="email" placeholder="Your email address" required>
       <button type="submit">Notify Me</button>
@@ -478,7 +516,7 @@ fbq('track', 'PageView');
     })
     .then(function(res){
       if (res.ok) {
-        msg.textContent = 'You are on the list, we will email you when the screening date and venue are set.';
+        msg.textContent = 'You are on the list, we will email you screening reminders and updates.';
         form.reset();
         if (typeof fbq === 'function') { fbq('track', 'Lead'); }
       } else {
