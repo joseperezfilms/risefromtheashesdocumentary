@@ -214,6 +214,11 @@
   .show-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 18px;}
   .show-card .time{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin-bottom:6px;}
   .show-card .meta{color:var(--muted);font-size:14px;}
+  a.show-card{display:block;text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease;}
+  a.show-card:hover,a.show-card:focus-visible{transform:translateY(-2px);border-color:var(--accent);outline:none;}
+  a.show-card:focus-visible{box-shadow:0 0 0 3px var(--accent);}
+  .show-card .rsvp{display:inline-block;margin-top:16px;padding:10px 22px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;letter-spacing:.02em;}
+  a.show-card:hover .rsvp{background:var(--accent-light);}
   .screening-where{color:var(--muted);font-size:15px;margin-bottom:28px;}
   .screening-where strong{color:var(--text);}
   .hero-date{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-size:13px;color:var(--text);margin:0 auto 28px;letter-spacing:.5px;}
@@ -291,8 +296,7 @@ fbq('track', 'PageView');
   <p class="sub">Honoring the businesses and neighbors of Old Town Newhall as they rebuild after the fire — told by the people who lived it.</p>
   <div class="hero-date">Free community screening &middot; Thursday, Nov 12 &middot; Laemmle Newhall</div>
   <div class="hero-ctas">
-    <a href="#screening" class="btn btn-primary">Reserve a Seat</a>
-    <a href="#support" class="btn btn-secondary">Support the Film</a>
+    <a href="#support" class="btn btn-primary">Support the Film</a>
     <a href="#story" class="btn btn-secondary">Read the Story</a>
   </div>
   <div class="video-wrap">
@@ -320,15 +324,11 @@ fbq('track', 'PageView');
     <h2>Be in the room with the people who lived it.</h2>
     <p class="lede">Two free showings of <em>Rise From The Ashes</em> for the Old Town Newhall community, each followed by a Q&amp;A with director Jose Perez.</p>
     <div class="show-grid">
-      <div class="show-card"><div class="time">4:00 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 3:30 PM</div></div>
-      <div class="show-card"><div class="time">5:30 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 5:00 PM</div></div>
+      <a class="show-card" href="https://partiful.com/e/inoRZwyvBZZ0X0Jzb7aE?c=_HqFCJuN" target="_blank" rel="noopener" aria-label="RSVP for the 4:00 PM showing on Thursday, Nov 12"><div class="time">4:00 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 3:30 PM</div><span class="rsvp">RSVP for 4:00 PM</span></a>
+      <a class="show-card" href="https://partiful.com/e/z19Wa1ZtWgzaubRIw2Vw?c=OfSBATMG" target="_blank" rel="noopener" aria-label="RSVP for the 5:30 PM showing on Thursday, Nov 12"><div class="time">5:30 PM</div><div class="meta">Thursday, Nov 12<br>Arrive by 5:00 PM</div><span class="rsvp">RSVP for 5:30 PM</span></a>
     </div>
     <p class="screening-where"><strong>Laemmle Newhall</strong><br>22500 Lyons Ave, Newhall, CA</p>
-    <p class="lede" style="margin-bottom:24px;">Admission is free. Seating is limited, so RSVP is required. Send Jose a message and he will reply with your RSVP link for the showing you would like.</p>
-    <div class="hero-ctas">
-      <a href="https://instagram.com/joseperezfilms" class="btn btn-primary" rel="noopener">Message on Instagram</a>
-      <a href="mailto:joseperezfilms@gmail.com?subject=RSVP%20-%20Rise%20From%20The%20Ashes" class="btn btn-secondary">Email to RSVP</a>
-    </div>
+    <p class="lede">Admission is free. Seating is limited, so RSVP is required. Tap the showing you would like to reserve your spot.</p>
   </div>
 </section>
 
