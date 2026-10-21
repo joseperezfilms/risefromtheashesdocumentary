@@ -499,6 +499,27 @@ fbq('track', 'PageView');
 </div>
 
 <script>
+  // Tag every Stripe link with where the visitor came from, so gifts can be traced to the ad.
+  // Order: ?src= wins, then Meta traffic (fbclid or a Facebook/Instagram referrer), else "direct".
+  (function(){
+    var q = new URLSearchParams(location.search);
+    var ref = (document.referrer || '').toLowerCase();
+    var src = (q.get('src') || '').toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 20);
+    if (!src) {
+      if (q.get('fbclid') || /facebook\.|instagram\.|fb\.com|fb\.me/.test(ref)) { src = 'meta'; }
+      else if (ref && ref.indexOf(location.hostname) === -1) { src = 'other'; }
+      else { src = 'direct'; }
+    }
+    document.querySelectorAll('a[data-pay]').forEach(function(a){
+      try {
+        var u = new URL(a.href);
+        var base = u.searchParams.get('client_reference_id') || 'lp';
+        u.searchParams.set('client_reference_id', base + '_' + src);
+        a.href = u.toString();
+      } catch (e) {}
+    });
+  })();
+
   // Track every support click for Meta (all buttons carry data-pay)
   document.querySelectorAll('a[data-pay]').forEach(function(a){
     a.addEventListener('click', function(){
