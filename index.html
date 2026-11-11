@@ -384,8 +384,9 @@ fbq('track', 'PageView');
       <div class="section-label" style="margin-bottom:8px;">Third Screening</div>
       <div style="font-family:Georgia,'Times New Roman',serif;font-size:22px;margin-bottom:8px;">Saturday, Dec 12 &middot; 12 to 3 PM</div>
       <div style="color:var(--muted);font-size:15px;line-height:1.5;">Documentary shorts block at the Santa Clarita International Film Festival<br><strong style="color:var(--text);">Laemmle Newhall</strong></div>
-      <div style="color:var(--muted);font-size:14px;line-height:1.5;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">Festival block tickets are sold on the festival's website. The direct link to purchase is coming soon, so check back here.</div>
-      <a href="https://sciff.org" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;padding:13px 28px;border-radius:999px;background:var(--accent);border:1px solid var(--accent);color:#fff;font-size:15px;font-weight:700;text-decoration:none;">Visit sciff.org for festival details</a>
+      <div style="color:var(--muted);font-size:14px;line-height:1.5;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">RSVP here so we know you are coming. An RSVP is not a ticket: festival block tickets are sold on the festival's website, and the direct link to purchase is coming soon, so check back here.</div>
+      <a href="https://partiful.com/e/2SRyg8zaTiLqQ02nSoRS?c=SlBKRkTN" target="_blank" rel="noopener" style="display:inline-block;margin:16px 6px 0;padding:13px 28px;border-radius:999px;background:var(--accent);border:1px solid var(--accent);color:#fff;font-size:15px;font-weight:700;text-decoration:none;">RSVP for Dec 12</a>
+      <a href="https://sciff.org" target="_blank" rel="noopener" style="display:inline-block;margin:16px 6px 0;padding:13px 28px;border-radius:999px;background:var(--accent);border:1px solid var(--accent);color:#fff;font-size:15px;font-weight:700;text-decoration:none;">Visit sciff.org for tickets</a>
     </div>
   </div>
 </section>
@@ -659,12 +660,22 @@ fbq('track', 'PageView');
     var cnt = document.getElementById('rv-count');
     var msg = document.getElementById('review-msg');
     var btn = document.getElementById('rv-btn');
+    function fail(name, text){
+      var body = 'Name: ' + name + '\n\nReview: ' + text;
+      var href = 'mailto:' + REVIEW_INBOX + '?subject=' + encodeURIComponent('Film review: Rise from the Ashes') + '&body=' + encodeURIComponent(body);
+      msg.textContent = 'We could not send that automatically. ';
+      var a = document.createElement('a');
+      a.href = href; a.textContent = 'Tap here to email your review instead.';
+      a.style.color = 'var(--gold)'; a.style.textDecoration = 'underline';
+      msg.appendChild(a);
+    }
     ta.addEventListener('input', function(){ cnt.textContent = ta.value.length; });
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var name = form.name.value.trim(), text = ta.value.trim();
-      if (!name || text.length < 10) { msg.textContent = 'Please add your name and a few words about the film.'; return; }
+      if (!name) { msg.textContent = 'Please add your name.'; return; }
+      if (text.length < 3) { msg.textContent = 'Please write a few words about the film.'; return; }
       if (!document.getElementById('rv-ok').checked) { msg.textContent = 'Please check the box to let us share your review.'; return; }
       if (form._honey.value) { return; }
       btn.disabled = true; msg.textContent = 'Submitting...';
@@ -685,10 +696,10 @@ fbq('track', 'PageView');
         if (r.ok && r.d.success !== 'false' && r.d.success !== false) {
           msg.textContent = 'Thank you. Your review was received and will appear here after a quick check.';
           form.reset(); cnt.textContent = '0';
-        } else { msg.textContent = 'Something went wrong, please try again in a moment.'; }
+        } else { console.log('review form response', r.d); fail(name, text); }
         btn.disabled = false;
       })
-      .catch(function(){ msg.textContent = 'Something went wrong, please try again in a moment.'; btn.disabled = false; });
+      .catch(function(err){ console.log('review form error', err); fail(name, text); btn.disabled = false; });
     });
   })();
 </script>
